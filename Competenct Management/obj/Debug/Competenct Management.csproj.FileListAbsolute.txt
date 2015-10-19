@@ -1,0 +1,71 @@
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\csc.exe
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\System.Collections.Immutable.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\vbc.exe
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\VBCSCompiler.exe
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\roslyn\VBCSCompiler.exe.config
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Competenct Management.dll.config
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Competenct Management.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Competenct Management.pdb
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Antlr3.Runtime.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\EntityFramework.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\EntityFramework.SqlServer.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Google.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Web.Infrastructure.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Newtonsoft.Json.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Owin.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Helpers.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Mvc.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Optimization.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Razor.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.WebPages.Deployment.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.WebPages.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.WebPages.Razor.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\WebGrease.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Helpers.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Mvc.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Optimization.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.Razor.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.WebPages.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.WebPages.Deployment.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Web.WebPages.Razor.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Antlr3.Runtime.pdb
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Newtonsoft.Json.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\EntityFramework.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\EntityFramework.SqlServer.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Google.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\obj\Debug\Competenct Management.csprojResolveAssemblyReference.cache
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\obj\Debug\Competenct Management.dll
+c:\users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\obj\Debug\Competenct Management.pdb
+C:\Users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Json.dll
+C:\Users\pbarnard\documents\visual studio 2015\Projects\Competenct Management\Competenct Management\bin\System.Json.xml
