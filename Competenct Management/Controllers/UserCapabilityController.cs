@@ -2,156 +2,206 @@
 using System.Collections.Generic;
 using Competenct_Management.Models;
 using System.Data.Entity;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Competenct_Management.Models;
 
-namespace Competenct_Management.Models
-{
+
+namespace Competenct_Management.Controllers
+{/// <summary>
+/// 
+/// </summary>
     public class UserCapabilityController : Controller
     {
         public static IList<User_Capability> _persons = new List<User_Capability>()
         {
-            new User_Capability {PersonId = 1, PersonName = "Peter Barnard",SubSystem = "BMS Engineering", Component = "Legislation", Description = "Leg", Score = 3}
-            new User_Capability {PersonId = 1, PersonName = "Peter Barnard",SubSystem = "BMS Engineering", Component = "Design", Description = "Architectual", Score = 2}
-            new User_Capability {PersonId = 1, PersonName = "Will Johnston",SubSystem = "C&S Engineering", Component = "Work", Description = "wk", Score = 3}
+            new User_Capability {PersonId = 1, PersonName = "Peter Barnard", SubSystem = "BMS Engineering", Component = "Legislation", Description = "Leg", Score = 3},
+            new User_Capability {PersonId = 1, PersonName = "Peter Barnard", SubSystem = "BMS Engineering", Component = "Design", Description = "Architectual", Score = 2},
+            new User_Capability {PersonId = 1, PersonName = "Will Johnston", SubSystem = "C&S Engineering", Component = "Work", Description = "wk", Score = 3}
         };
-        //private User_CapabilityDBContext db = new User_CapabilityDBContext();
+
+        #region MockData
+
+        public List<string> SysList = new List<string>()
+        {
+            "CCTV", "BMS", "C&S"
+        };
+        public static List<SubSystemDropDownLink> ssdl = new List<SubSystemDropDownLink>()
+        {
+            new SubSystemDropDownLink { System = "CCTV", SubSystem = "Engineering" },
+            new SubSystemDropDownLink { System = "CCTV", SubSystem = "Related Engineering" },
+            new SubSystemDropDownLink { System = "BMS", SubSystem = "Engineering" },
+            new SubSystemDropDownLink { System = "BMS", SubSystem = "HVAC" }
+            
+        };
+        public static List<SubSysComponentsDropDownLink> ssCompddl = new List<SubSysComponentsDropDownLink>()
+        {
+            new SubSysComponentsDropDownLink { System = "CCTV", SubSystem = "Engineering", Component = "Drawings" },
+            new SubSysComponentsDropDownLink { System = "CCTV", SubSystem = "Related Engineering",Component = "Maths"  },
+            new SubSysComponentsDropDownLink { System = "BMS", SubSystem = "Engineering" ,Component = "Boredom"},
+            new SubSysComponentsDropDownLink { System = "BMS", SubSystem = "HVAC", Component = "Cooling" }
+
+        };
+       
+        #endregion
+
+        private User_CapabilityDBContext db = new User_CapabilityDBContext();
 
         // GET: UserCapability
-        /* public ActionResult Index()
+         public ActionResult Index()
          {
-             return View(db.Capabilities.ToList());
+            IEnumerable<SelectListItem> items =
+                from s in SysList
+                select new SelectListItem
+                {
+                    Text = s,
+                    Value = s
+                };
+
+            ViewBag.SystemsListItems = items;
+             return View(_persons);
          }
 
-         // GET: UserCapability/Details/5
-         public ActionResult Details(string id)
-         {
-             if (id == null)
-             {
-                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-             }
-             User_Capability user_Capability = db.Capabilities.Find(id);
-             if (user_Capability == null)
-             {
-                 return HttpNotFound();
-             }
-             return View(user_Capability);
-         }
+        [HttpPost]
+        public JsonResult GetSubSystemsList(string systemName)
+        {
 
-         // GET: UserCapability/Create
-         public ActionResult Create()
+            return Json(from ss in ssdl
+                        where ss.System == systemName
+                        select new {ss.System, ss.SubSystem}
+                        );
+        }
+         //// GET: UserCapability/Details/5
+         //public ActionResult Details(string id)
+         //{
+         //    if (id == null)
+         //    {
+         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+         //    }
+         //    User_Capability user_Capability = db.Capabilities.Find(id);
+         //    if (user_Capability == null)
+         //    {
+         //        return HttpNotFound();
+         //    }
+         //    return View(user_Capability);
+         //}
 
-         {
-             return View(new User_Capability());
-         }
+         //// GET: UserCapability/Create
+         //public ActionResult Create()
+
+         //{
+         //    return View(new User_Capability());
+         //}
 
 
 
-         // POST: UserCapability/Create
-         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-         [HttpPost]
-         [ValidateAntiForgeryToken]
-         public ActionResult Create([Bind(Include = "ID,System,SubSystem,Component,Description,Score")] User_Capability user_Capability)
-         {
-             if (ModelState.IsValid)
-             {
-                 db.Capabilities.Add(user_Capability);
-                 db.SaveChanges();
-                 return RedirectToAction("Index");
-             }
+         //// POST: UserCapability/Create
+         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+         //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+         //[HttpPost]
+         //[ValidateAntiForgeryToken]
+         //public ActionResult Create([Bind(Include = "ID,System,SubSystem,Component,Description,Score")] User_Capability user_Capability)
+         //{
+         //    if (ModelState.IsValid)
+         //    {
+         //        db.Capabilities.Add(user_Capability);
+         //        db.SaveChanges();
+         //        return RedirectToAction("Index");
+         //    }
 
-             return View(user_Capability);
-         }*/
+         //    return View(user_Capability);
+         //}
 
-        // GET: UserCapability/Edit/5
+        /// <summary>
+        /// Edits our user caps
+        /// </summary>
+        /// <param name="id"> User ID Not Company ID!</param>
+        /// <returns></returns>
         public ViewResult Edit(int id)
         {
             User_Capability personToEdit = (from p in _persons where p.PersonId == id select p).Single();
-            personToEdit.System = (from s in SubSystems where s.SubSystem == personToEdit.SubSystem)
+            //TODO review use of linq below, this was working before, I think. ML
+            //personToEdit.System = (from s in SubSystems where s.SubSystem == personToEdit.SubSystem)
             return View("Create", personToEdit);
         }
 
-        [HttpPost]
-        public JsonResult SystemList()
-        {
-            return Json(Systems);
-        }
+        //[HttpPost]
+        //public JsonResult SystemList()
+        //{
+        //    return Json(Systems);
+        //}
 
-        [HttpPost]
-        public JsonResult SubSystemList(string System)
-        {
-            return Json(from s in Subsystems
-                        where s.System == System
-                        select new { s.SubSystem });
-        }
+        //[HttpPost]
+        //public JsonResult SubSystemList(string System)
+        //{
+        //    return Json(from s in Subsystems
+        //                where s.System == System
+        //                select new { s.SubSystem });
+        //}
 
-        [HttpPost]
-        public JsonResult ComponentList(string Component)
-        {
-            return Json(from c in Component
-                        where c.Component == Component
-                        select new { s.Component });
-        }
+        //[HttpPost]
+        //public JsonResult ComponentList(string Component)
+        //{
+        //    return Json(from c in Component
+        //                where c.Component == Component
+        //                select new { s.Component });
+        //}
 
-        [HttpPost]
-        public JsonResult DescriptionList(string Decription)
-        {
-            return Json(from d in Description
-                        where d.Description == Decription
-                        select new { s.Description });
-        }
+        //[HttpPost]
+        //public JsonResult DescriptionList(string Decription)
+        //{
+        //    return Json(from d in Description
+        //                where d.Description == Decription
+        //                select new { s.Description });
+        //}
 
-        [HttpPost]
-        public JsonResult ScoreList(int Score)
-        {
-            return Json(from ss in Score
-                        where ss.Score == Score
-                        select new { ss.Score });
-        }
+        //[HttpPost]
+        //public JsonResult ScoreList(int Score)
+        //{
+        //    return Json(from ss in Score
+        //                where ss.Score == Score
+        //                select new { ss.Score });
+        //}
 
-        public List<Systemtbl> Systems
-        {
-            get
-            {
-                return new List<Systemtbl>()
-                {
-                    new Systemtbl {System = "BMS" },
-                    new Systemtbl { System = "C&S" },
-                    new Systemtbl { System = "CCTV" },
-                };
-            }
-        }
+        //public List<Systemtbl> Systems
+        //{
+        //    get
+        //    {
+        //        return new List<Systemtbl>()
+        //        {
+        //            new Systemtbl {System = "BMS" },
+        //            new Systemtbl { System = "C&S" },
+        //            new Systemtbl { System = "CCTV" },
+        //        };
+        //    }
+        //}
 
-        public List<SubSystemtbl> SubSystems
-        {
-            get
-            {
-                return new List<SubSystemtbl>()
-                {
-                    new SubSystemtbl { System = "BMS", SubSystem = "BMS Engineering" },
-                    new SubSystemtbl { System = "C&S", SubSystem = "C&S Engineering" },
-                    new SubSystemtbl { System = "CCTV", SubSystem = "CCTV Engineering" }
-                };
-            }
-        }
+        //public list<subsystemtbl> subsystems
+        //{
+        //    get
+        //    {
+        //        return new list<subsystemtbl>()
+        //        {
+        //            new subsystemtbl { system = "bms", subsystem = "bms engineering" },
+        //            new subsystemtbl { system = "c&s", subsystem = "c&s engineering" },
+        //            new subsystemtbl { system = "cctv", subsystem = "cctv engineering" }
+        //        };
+        //    }
+        //}
 
-        public List<Componenttbl> Components
-        {
-            get
-            {
-                return new List<Componenttbl>()
-                {
-                    new Componenttbl { SubSystem = "BMS Engineering" },
-                    new Componenttbl { System = "C&S" },
-                    new Componenttbl { System = "CCTV" },
-                };
-            }
-        }
+        //public List<Componenttbl> Components
+        //{
+        //    get
+        //    {
+        //        return new List<Componenttbl>()
+        //        {
+        //            new Componenttbl { SubSystem = "BMS Engineering" },
+        //            new Componenttbl { System = "C&S" },
+        //            new Componenttbl { System = "CCTV" },
+        //        };
+        //    }
+        //}
     }
 }
 
