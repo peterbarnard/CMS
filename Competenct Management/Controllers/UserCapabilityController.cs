@@ -46,7 +46,7 @@ namespace Competenct_Management.Controllers
        
         #endregion
 
-        private User_CapabilityDBContext db = new User_CapabilityDBContext();
+        ///private User_CapabilityDBContext db = new User_CapabilityDBContext();
 
         // GET: UserCapability
          public ActionResult Index()
@@ -70,6 +70,15 @@ namespace Competenct_Management.Controllers
             return Json(from ss in ssdl
                         where ss.System == systemName
                         select new {ss.System, ss.SubSystem}
+                        );
+        }
+
+        [HttpPost]
+        public JsonResult GetComponentList(string subsystName)
+        {
+            return Json(from c in ssCompddl
+                        where c.System + '-' + c.SubSystem == subsystName
+                        select new {c.Component }
                         );
         }
          //// GET: UserCapability/Details/5
