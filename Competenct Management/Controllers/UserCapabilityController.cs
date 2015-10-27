@@ -27,29 +27,39 @@ namespace Competenct_Management.Controllers
         {
             "CCTV", "BMS", "C&S"
         };
+
         public static List<SubSystemDropDownLink> ssdl = new List<SubSystemDropDownLink>()
         {
             new SubSystemDropDownLink { System = "CCTV", SubSystem = "Engineering" },
             new SubSystemDropDownLink { System = "CCTV", SubSystem = "Related Engineering" },
             new SubSystemDropDownLink { System = "BMS", SubSystem = "Engineering" },
-            new SubSystemDropDownLink { System = "BMS", SubSystem = "HVAC" }
+            new SubSystemDropDownLink { System = "BMS", SubSystem = "Related Engineering" }
             
         };
-        public static List<SubSysComponentsDropDownLink> ssCompddl = new List<SubSysComponentsDropDownLink>()
-        {
-            new SubSysComponentsDropDownLink { System = "CCTV", SubSystem = "Engineering", Component = "Drawings" },
-            new SubSysComponentsDropDownLink { System = "CCTV", SubSystem = "Related Engineering",Component = "Maths"  },
-            new SubSysComponentsDropDownLink { System = "BMS", SubSystem = "Engineering" ,Component = "Boredom"},
-            new SubSysComponentsDropDownLink { System = "BMS", SubSystem = "HVAC", Component = "Cooling" }
 
+        public static List<Component> ssCompddl = new List<Component>()
+        {
+            new Component { componentId = "CCTV-Engineering", component = "Legislation" },
+            new Component { componentId = "CCTV-Engineering", component = "Standards" },
+            new Component { componentId = "CCTV-Related Engineering", component = "M&E"  },
+            new Component { componentId = "BMS-Engineering", component = "Legislation"},
+            new Component { componentId = "BMS-Related Engineering", component = "Electrical" }
         };
-       
+
+        public static List<Description> ssDescdddl = new List<Description>()
+        {
+            new Description { descriptionId = "CCTV-Engineering-Legislation", description = "Data Protection Act"},
+            new Description { descriptionId = "CCTV-Related Engineering-M&E", description = "Cable and Containment Requirments"},
+            new Description { descriptionId = "BMS-Engineering-Legislation", description = "Building Regulations"},
+            new Description { descriptionId = "BMS-Related Engineering-Electrical", description = "HV switchgear / switchboards" }
+        };
+
         #endregion
 
         ///private User_CapabilityDBContext db = new User_CapabilityDBContext();
 
         // GET: UserCapability
-         public ActionResult Index()
+        public ActionResult Index()
          {
             IEnumerable<SelectListItem> items =
                 from s in SysList
@@ -77,50 +87,60 @@ namespace Competenct_Management.Controllers
         public JsonResult GetComponentList(string subsystName)
         {
             return Json(from c in ssCompddl
-                        where c.System + '-' + c.SubSystem == subsystName
-                        select new {c.Component }
+                        where c.componentId == subsystName
+                        select new {c.componentId, c.component }
                         );
         }
-         //// GET: UserCapability/Details/5
-         //public ActionResult Details(string id)
-         //{
-         //    if (id == null)
-         //    {
-         //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-         //    }
-         //    User_Capability user_Capability = db.Capabilities.Find(id);
-         //    if (user_Capability == null)
-         //    {
-         //        return HttpNotFound();
-         //    }
-         //    return View(user_Capability);
-         //}
 
-         //// GET: UserCapability/Create
-         //public ActionResult Create()
+        [HttpPost]
+        public JsonResult GetDescriptionList(string compName)
+        {
+            return Json(from d in ssDescdddl
+                        where d.descriptionId == compName
+                        select new {d.descriptionId, d.description }
+                        );
+        }
 
-         //{
-         //    return View(new User_Capability());
-         //}
+        //// GET: UserCapability/Details/5
+        //public ActionResult Details(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    User_Capability user_Capability = db.Capabilities.Find(id);
+        //    if (user_Capability == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(user_Capability);
+        //}
+
+        //// GET: UserCapability/Create
+        //public ActionResult Create()
+
+        //{
+        //    return View(new User_Capability());
+        //}
 
 
 
-         //// POST: UserCapability/Create
-         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-         //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-         //[HttpPost]
-         //[ValidateAntiForgeryToken]
-         //public ActionResult Create([Bind(Include = "ID,System,SubSystem,Component,Description,Score")] User_Capability user_Capability)
-         //{
-         //    if (ModelState.IsValid)
-         //    {
-         //        db.Capabilities.Add(user_Capability);
-         //        db.SaveChanges();
-         //        return RedirectToAction("Index");
-         //    }
+        //// POST: UserCapability/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "ID,System,SubSystem,Component,Description,Score")] User_Capability user_Capability)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Capabilities.Add(user_Capability);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-         //    return View(user_Capability);
-         //}
+        //    return View(user_Capability);
+        //}
 
         /// <summary>
         /// Edits our user caps

@@ -11,12 +11,17 @@ namespace Competenct_Management.Controllers
         public string SubSystem { get; set; }
     }
 
-    public class SubSysComponentsDropDownLink
+    public class Component
     {
-        public string System { get; set; }
-        public string SubSystem { get; set; }
-        public string Component { get; set; }
+        public string componentId { get; set; }
+        public string component { get; set; }
 
+    }
+
+    public class Description
+    {
+        public string descriptionId { get; set; }
+        public string description { get; set; }
     }
 
 }
