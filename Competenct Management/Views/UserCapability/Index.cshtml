@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
 }
+<script src="~/Scripts/UserCapabilityIndexApp.js"></script>
 <h2>Index</h2>
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -9,67 +10,47 @@
 
 <table>
     <tr>
-        <td >System</td>
-            <td style="width: 100px">@Html.DropDownList("SystemsListItems")</td>           
-            <td>Sub-System</td>
-            <td style="width: 100px">
-                <select id="SubSystemsDd" name="SubSystemsDd"></select>
-            </td>
-            <td>Component</td>
-            <td style="width: 100px">
-                <select id="ComponentsDd" name="ComponentsDd">
-                    <option value="Blank">Blank</option>
-                </select>
-            </td>
+        <td>System</td>
+        <td style="width: 100px">@Html.DropDownList("SystemsListItems")</td>
+        <td>Sub-System</td>
+        <td style="width: 100px">
+            <select id="SubSystemsDd" name="SubSystemsDd"></select>
+        </td>
+        
+        <td>Component</td>
+        <td style="width: 100px">
+            <select id="ComponentsDd" name="ComponentsDd">
+                <option value="Blank">Blank</option>
+            </select>
+        </td>
+        
+        <td>Description</td>
+        <td style="width: 100px">
+            <select id="DescriptionDd" name="DescriptionDd">
+                <option value="Blank">Blank</option>
+            </select>
+        </td>
 
-</tr>
+        <td>Score</td>
+        <td style="width: 100px">
+            <select id="ScoreDd" name="ScoreDd">
+                @for (int i = 0; i < 6; i++)
+                {
+                    <option value= @i >@i</option>
+                }
+                
+
+            </select>
+        </td>
+
+    </tr>
     @*<tr>
             <td>@Html.LabelFor(x => x.CityCode)</td>
             <td style="width: 100px">@Html.DropDownListFor(x => x.CityCode, new List<SelectListItem>(), new { TheOriginalValue = Model.CityCode })</td>
         </tr>*@
 </table>
 
-<script type="text/javascript">
-    $("#SystemsListItems").change(function (data) {
-        // find the selected, and alert it.
-        $.ajax({
-            url: '/UserCapability/GetSubSystemsList/',
-            type: 'POST',
-            data: {systemName:$("#SystemsListItems").find(":selected").val() },
-            dataType: 'json',                 
-            success: function (data) {
-                var s = $("#SubSystemsDd");
-                s.empty();
-                $.each(data, function () {
-                    s.append('<option value= \"' + this.System + '-' + this.SubSystem + '\">' + this.SubSystem + '</option>')
-                });
-            }// ajax callback
 
-        });
-
-    });
-
-
-    $("#SubSystemsDd").change(function (data) {
-        // find the selected, and alert it.
-        $.ajax({
-            url: '/UserCapability/GetComponentList/',
-            type: 'POST',
-            data: { subsystName: $("#SubSystemsDd").find(":selected").val() },
-            dataType: 'json',
-            success: function (data) {
-                var s = $("#ComponentsDd");
-                s.empty();
-                $.each(data, function () {
-                    s.append('<option>' + this.Component + '</option>')
-                });
-            }// ajax callback
-
-        });
-
-    });
-
-</script>
 
 <table class="table">
     <tr>

@@ -24,4 +24,5 @@ namespace Competenct_Management.Controllers
         public string description { get; set; }
     }
 
+  
 }
